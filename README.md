@@ -4,15 +4,11 @@ Ceci est un projet d'école consistant à faire un registre des communes d'une b
 
 ## Les auteurs
 
-----------------------------
-
 - Kevin Lebeau : <https://github.com/kevmorlo>
 - Nicolas Guillemin : <https://github.com/Nicox44>
 - Mariam Sogoba : <https://github.com/Mariam2003>
 
 ## Langages utilisés ?
-
-----------------------------
 
 - PHP
 - HTML
@@ -21,13 +17,9 @@ Ceci est un projet d'école consistant à faire un registre des communes d'une b
 
 ## Responsive ?
 
-----------------------------
-
 Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que PC (en 1920 x 1080)
 
 ## Installation du projet
-
-----------------------------
 
 ### Prérequis
 
@@ -40,7 +32,5 @@ Il vous faudra tout d'abord importer la base de données situé dans ```database
 Enfin, il vous faudra plus que lancer le serveur et vous connecter avec votre navigateur web !
 
 ## Licence
-
-----------------------------
 
 Ce projet est sous la licence GNU General Public License v3.0.
