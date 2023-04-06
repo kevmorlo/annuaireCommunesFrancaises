@@ -25,6 +25,8 @@ Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que
 
 - Un serveur web
 
+----------------------------
+
 ### Installation
 
 Il vous faudra tout d'abord importer la base de données situé dans ```database/villes_france.sql```.
