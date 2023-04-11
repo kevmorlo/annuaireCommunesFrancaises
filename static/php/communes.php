@@ -59,20 +59,41 @@ $resultats = $assertion->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </div>
     <div class="pagination">
-            <?php
-            // Calcul du nombre de pages
-            $sth = $dbh->query("SELECT COUNT(*) FROM villes_france_free");
-            $total_results = $sth->fetchColumn();
-            $total_pages = ceil($total_results / $resultats_par_page);
+        <?php
+        // Calcul du nombre de pages
+        $sth = $dbh->query("SELECT COUNT(*) FROM villes_france_free");
+        $resultats_totaux = $sth->fetchColumn();
+        $pages_totales = ceil($resultats_totaux / $resultats_par_page);
 
-            // Affichage des liens vers les différentes pages
-            for ($i = 1; $i <= $total_pages; $i++) {
-                if ($i == $page) {
-                    echo "<span class=\"current-page\">$i</span>";
-                } else{
-                    echo "<a href=\"?page=$i\">$i</a>";
-                }
-            }
-            ?>
+        // Nombre maximum de liens de page à afficher avant et après la page actuelle
+        $max_liens_avant_apres = 5;
+
+        // Affichage des liens vers les différentes pages
+        if ($page > 1) : ?>
+            <a href="?page=1">&laquo;&laquo;</a>
+            <a href="?page=<?= $page - 1 ?>">&laquo;</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $pages_totales; $i++) : ?>
+            <?php if ($i == $page) : ?>
+                <span class="current-page"><?= $i ?></span>
+            <?php else : ?>
+                <?php
+                $min_lien = max(1, $page - $max_liens_avant_apres);
+                $max_lien = min($pages_totales, $page + $max_liens_avant_apres);
+                if ($i >= $min_lien && $i <= $max_lien) :
+                ?>
+                    <a href="?page=<?= $i ?>"><?= $i ?></a>
+                <?php elseif ($i == $min_lien - 1 || $i == $max_lien + 1) : ?>
+                    <span class="pagination-separator">&hellip;</span>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endfor; ?>
+
+        <?php if ($page < $pages_totales) : ?>
+            <a href="?page=<?= $page + 1 ?>">&raquo;</a>
+            <a href="?page=<?= $pages_totales ?>">&raquo;&raquo;</a>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
