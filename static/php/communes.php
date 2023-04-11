@@ -20,7 +20,7 @@ $resultats_par_page = 30;
 $compensation = ($page - 1) * $resultats_par_page;
 
 // Récupération des données de la base de données
-$assertion = $dbh->prepare("SELECT * FROM villes_france_free LIMIT :compensation, :resultats_par_page");
+$assertion = $dbh->prepare("SELECT ville_id, ville_nom, ville_departement, ville_code_postal, ville_code_commune, ville_population_1999, ville_population_2010, ville_surface, ville_latitude_deg, ville_longitude_deg FROM villes_france_free LIMIT :compensation, :resultats_par_page");
 $assertion->bindParam(':compensation', $compensation, PDO::PARAM_INT);
 $assertion->bindParam(':resultats_par_page', $resultats_par_page, PDO::PARAM_INT);
 $assertion->execute();
@@ -36,33 +36,23 @@ $resultats = $assertion->fetchAll(PDO::FETCH_ASSOC);
                     <th>Département</th>
                     <th>Code Postal</th>
                     <th>Code INSEE</th>
-                    <th>Population en 1999</th>
-                    <th>Population en 2010</th>
-                    <th>Surface</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
                 </tr>
-                    <?php foreach($resultats as $ligne){ ?>
-                    <tr> <!-- Contenu de la base de données -->
-                        <td><?= $ligne['ville_nom'] ?></td>
-                        <td><?= $ligne['ville_departement'] ?></td>
-                        <td><?= $ligne['ville_code_postal'] ?></td>
-                        <td><?= $ligne['ville_code_commune'] ?></td>
-                        <td><?= $ligne['ville_population_1999'] ?></td>
-                        <td><?= $ligne['ville_population_2010'] ?></td>
-                        <td><?= $ligne['ville_surface'] ?></td>
-                        <td><?= $ligne['ville_latitude_deg'] ?></td>
-                        <td><?= $ligne['ville_longitude_deg'] ?></td>
-                    </tr>
-                    <?php } ?>
+                <?php foreach($resultats as $ligne){ ?>
+                <tr> <!-- Contenu de la base de données -->
+                    <td><a href="commune.php?id=<?= $ligne['ville_id'] ?>"><?= $ligne['ville_nom'] ?></a></td>
+                    <td><?= $ligne['ville_departement'] ?></td>
+                    <td><?= $ligne['ville_code_postal'] ?></td>
+                    <td><?= $ligne['ville_code_commune'] ?></td>
+                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
     <div class="pagination">
         <?php
         // Calcul du nombre de pages
-        $sth = $dbh->query("SELECT COUNT(*) FROM villes_france_free");
-        $resultats_totaux = $sth->fetchColumn();
+        $assertion = $dbh->query("SELECT COUNT(*) FROM villes_france_free");
+        $resultats_totaux = $assertion->fetchColumn();
         $pages_totales = ceil($resultats_totaux / $resultats_par_page);
 
         // Nombre maximum de liens de page à afficher avant et après la page actuelle
