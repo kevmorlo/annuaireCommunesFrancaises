@@ -23,7 +23,7 @@ Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que
 
 ### Prérequis
 
-- Un serveur web
+- Un serveur web (php, mysql et apache)
 
 ----------------------------
 
