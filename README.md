@@ -31,7 +31,7 @@ Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que
 
 Il vous faudra tout d'abord importer la base de données situé dans ```database/villes_france.sql```.
 
-Enfin, il vous faudra plus que lancer le serveur et vous connecter avec votre navigateur web !
+Enfin, il vous faudra lancer le serveur et vous connecter avec votre navigateur web !
 
 ## Licence
 
