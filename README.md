@@ -8,22 +8,26 @@ Ceci est un projet d'école consistant à faire un registre des communes d'une b
 - Nicolas Guillemin : <https://github.com/Nicox44>
 - Mariam Sogoba : <https://github.com/Mariam2003>
 
-## Langages utilisés ?
+## Langages utilisés
 
 - PHP
 - HTML
 - CSS
 - SQL
 
+## Technologies utilisées 
+
+- MySQL
+
 ## Responsive ?
 
-Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que PC (en 1920 x 1080)
+Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que PC.
 
 ## Installation du projet
 
 ### Prérequis
 
-- Un serveur web
+- Un serveur web (php, mysql et apache)
 
 ----------------------------
 
@@ -31,7 +35,7 @@ Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que
 
 Il vous faudra tout d'abord importer la base de données situé dans ```database/villes_france.sql```.
 
-Enfin, il vous faudra plus que lancer le serveur et vous connecter avec votre navigateur web !
+Enfin, il vous faudra lancer le serveur et vous connecter avec votre navigateur web !
 
 ## Licence
 
