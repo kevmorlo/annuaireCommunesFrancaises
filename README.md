@@ -21,7 +21,7 @@ Ceci est un projet d'école consistant à faire un registre des communes d'une b
 
 ## Responsive ?
 
-Actuellement il n'est pas prêt pour être utilisé sur d'autres plateformes que PC.
+L'application est tout à fait responsive malgré quelques soucis avec les petites résolutions.
 
 ## Installation du projet
 
